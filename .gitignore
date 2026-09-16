@@ -1,0 +1,16 @@
+# Dependencies
+node_modules/
+
+# Build output
+lib/client.js
+*.log
+
+# Editor
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+# Test artifacts
+*.mjs.tmp
+test-*.mjs

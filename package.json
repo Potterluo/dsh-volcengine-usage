@@ -1,0 +1,73 @@
+{
+  "name": "dsh-volcengine-usage",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "DSH Web GUI 内的火山引擎网关额度消耗面板：用量、Credit 估算、日/周/月限额提醒，自动发现 provider 配置，无需额外凭证。",
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "dsh-plugin",
+    "plugin",
+    "volcengine",
+    "volcano-engine",
+    "usage",
+    "quota",
+    "credit",
+    "gateway",
+    "client"
+  ],
+  "main": "lib/index.js",
+  "files": [
+    "lib/index.js",
+    "lib/client.js",
+    "cordis.patch.yml",
+    "README.md",
+    "README.zh.md",
+    "LICENSE"
+  ],
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web"
+    }
+  },
+  "scripts": {
+    "build:client": "node scripts/build-client.mjs",
+    "check:client": "node scripts/build-client.mjs --check"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.0"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.1"
+  },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/cordis": {
+      "optional": true
+    }
+  },
+  "license": "MIT",
+  "author": "BlueRegion Usage contributors",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YOUR_USERNAME/dsh-volcengine-usage.git"
+  },
+  "bugs": {
+    "url": "https://github.com/YOUR_USERNAME/dsh-volcengine-usage/issues"
+  },
+  "homepage": "https://github.com/YOUR_USERNAME/dsh-volcengine-usage#readme",
+  "engines": {
+    "node": ">=18"
+  }
+}
