@@ -10,7 +10,7 @@ DeepSeek Harness (DSH) Web GUI 内的**火山引擎网关额度消耗面板**：
 
 - **自动发现配置** — 自动扫描 DSH `settings.yaml` 中的所有网关 provider（`llm-pi-ai.providers.*` 或直接风格），无需手动配置
 - **实时 KPI** — 输入 Tokens（未缓存/缓存/输出）、请求数、缓存命中率
-- **Credit 精确估算** — 按日分段 × 模型生效系数 ÷ 1e6，与 [BlueRegion Usage](https://github.com/blue-region/BlueRegionUsage) 同款算法
+- **Credit 精确估算** — 按日分段 × 模型生效系数 ÷ 1e6，与 [BlueRegion Usage](https://gitcode.com/solcao/BlueRegionUsage) 同款算法
 - **限额徽章** — 可配置日提醒/日预警/日封禁、周封禁、月封禁，安全绿 → 预警黄 → 超限红
 - **周期切换** — 今日/本周/本月，60 秒自动刷新
 - **主题适配** — 使用 DSH 平台 CSS 变量（`--dsw-alias-*`），自动适配浅色/深色/自定义主题
@@ -116,7 +116,7 @@ volcengine-usage/
 ## 前置条件
 
 - DeepSeek Harness (DSH) 0.1.5+
-- 已部署 [BlueRegion Usage](https://github.com/blue-region/BlueRegionUsage) 后端的火山引擎 API 网关（提供 `/v1/usage/*` 接口）
+- 已部署 [BlueRegion Usage](https://gitcode.com/solcao/BlueRegionUsage) 后端的火山引擎 API 网关（提供 `/v1/usage/*` 接口）
 - API Key 已存入 DSH 凭证系统（通过模型设置页配置）
 
 ## 兼容性
@@ -128,7 +128,7 @@ volcengine-usage/
 - `baseURL` / `baseUrl` 两种大小写
 - `apiKeyEnv`（凭证引用）或 `apiKey`（直写密钥）
 
-`/v1/usage/*` 接口契约遵循 [BlueRegion Usage](https://github.com/blue-region/BlueRegionUsage) 规范。
+`/v1/usage/*` 接口契约遵循 [BlueRegion Usage](https://gitcode.com/solcao/BlueRegionUsage) 规范。
 
 ## License
 

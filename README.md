@@ -12,7 +12,7 @@ A floating panel that shows real-time token consumption, estimated Credit usage,
 
 - **Auto-discovery** — scans your DSH `settings.yaml` for any gateway provider (`llm-pi-ai.providers.*` or direct style). No manual setup required.
 - **Real-time KPIs** — input tokens (uncached / cached / output), request count, cache hit rate.
-- **Credit estimation** — per-model daily segmented × credit_history coefficient ÷ 1e6, same algorithm as [BlueRegion Usage](https://github.com/blue-region/BlueRegionUsage).
+- **Credit estimation** — per-model daily segmented × credit_history coefficient ÷ 1e6, same algorithm as [BlueRegion Usage](https://gitcode.com/solcao/BlueRegionUsage).
 - **Limit badges** — configurable daily warning / alert / block, weekly block, monthly block. Color-coded: safe (green) → warn (yellow) → over (red).
 - **Period switch** — today / week / month, with 60s auto-refresh.
 - **Theme-aware** — uses DSH platform CSS variables (`--dsw-alias-*`), adapts to light, dark, and custom themes (Endfield, Dream-Skin, etc.).
@@ -119,7 +119,7 @@ volcengine-usage/
 ## Prerequisites
 
 - DeepSeek Harness (DSH) 0.1.5+
-- A Volcano Engine API Gateway with the [BlueRegion Usage](https://github.com/blue-region/BlueRegionUsage) backend deployed (`/v1/usage/*` endpoints)
+- A Volcano Engine API Gateway with the [BlueRegion Usage](https://gitcode.com/solcao/BlueRegionUsage) backend deployed (`/v1/usage/*` endpoints)
 - An API key stored in DSH's credential system (configured through the Models page)
 
 ## Compatibility
@@ -131,7 +131,7 @@ The plugin discovers providers from any DSH namespace, supporting:
 - `baseURL` / `baseUrl` both accepted
 - `apiKeyEnv` (credential ref) or `apiKey` (literal key)
 
-The `/v1/usage/*` API contract follows the [BlueRegion Usage](https://github.com/blue-region/BlueRegionUsage) specification.
+The `/v1/usage/*` API contract follows the [BlueRegion Usage](https://gitcode.com/solcao/BlueRegionUsage) specification.
 
 ## License
 
