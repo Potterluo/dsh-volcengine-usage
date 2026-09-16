@@ -1,8 +1,8 @@
 # Dependencies
 node_modules/
 
-# Build output
-lib/client.js
+# Build artifacts (regenerate with scripts/build-client.mjs)
+lib/client.js.map
 *.log
 
 # Editor

@@ -61,12 +61,12 @@
   "author": "BlueRegion Usage contributors",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/YOUR_USERNAME/dsh-volcengine-usage.git"
+    "url": "git+https://github.com/Potterluo/dsh-volcengine-usage.git"
   },
   "bugs": {
-    "url": "https://github.com/YOUR_USERNAME/dsh-volcengine-usage/issues"
+    "url": "https://github.com/Potterluo/dsh-volcengine-usage/issues"
   },
-  "homepage": "https://github.com/YOUR_USERNAME/dsh-volcengine-usage#readme",
+  "homepage": "https://github.com/Potterluo/dsh-volcengine-usage#readme",
   "engines": {
     "node": ">=18"
   }
