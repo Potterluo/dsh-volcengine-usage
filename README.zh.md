@@ -2,7 +2,7 @@
 
 DeepSeek Harness (DSH) Web GUI 内的**火山引擎网关额度消耗面板**：实时展示 Token 用量、Credit 估算、可配置的日/周/月限额，自动发现 DSH 中的 provider 配置，无需任何手动设置。
 
-![screenshot](./docs/screenshot.png)
+![screenshot](docs/screenshot.png)
 
 ---
 

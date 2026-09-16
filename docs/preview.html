@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>dsh-volcengine-usage 面板预览</title>
+<style>
+  :root {
+    --dsw-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    --dsw-alias-label-primary: #1a1c26;
+    --dsw-alias-label-secondary: #4a4f5e;
+    --dsw-alias-label-tertiary: #8b90a0;
+    --dsw-alias-bg-base: rgba(0,0,0,.03);
+    --dsw-alias-bg-layer-1: rgba(128,128,128,.06);
+    --dsw-alias-button-floating-fill: #fff;
+    --dsw-alias-button-info-fill: #4a6cf7;
+    --dsw-alias-label-primary-foreground: #fff;
+    --dsw-alias-interactive-bg-hover-solid: rgba(128,128,128,.05);
+    --dsw-alias-state-success-primary: #3fb950;
+    --dsw-alias-state-success-tertiary: rgba(46,160,67,.1);
+    --dsw-alias-state-warn-primary: #d29922;
+    --dsw-alias-state-warn-tertiary: rgba(210,153,34,.1);
+    --dsw-alias-state-error-primary: #f85149;
+    --dsw-elevation-stroke-color: rgba(128,128,128,.12);
+    --dsw-shadow-lv1: 0 1px 3px rgba(0,0,0,.12);
+    --dsw-shadow-lv3: 0 12px 40px rgba(0,0,0,.16);
+  }
+  body { margin: 0; padding: 48px; background: linear-gradient(135deg, #f2f4f8, #e8ebf2); display: flex; align-items: flex-start; justify-content: center; font-family: var(--dsw-font-family); }
+  .wrap { position: relative; }
+  [data-vu-toggle] {
+    width: 38px; height: 38px; border-radius: 10px;
+    border: 1px solid var(--dsw-elevation-stroke-color);
+    background: var(--dsw-alias-button-floating-fill);
+    color: var(--dsw-alias-label-secondary);
+    display: grid; place-items: center; cursor: pointer;
+    box-shadow: var(--dsw-shadow-lv3);
+    position: absolute; right: 16px; bottom: -60px;
+  }
+  [data-vu-panel] {
+    width: 360px; padding: 14px;
+    background: var(--dsw-alias-button-floating-fill);
+    border: 1px solid var(--dsw-elevation-stroke-color);
+    border-radius: 14px;
+    box-shadow: var(--dsw-shadow-lv3);
+    font-size: 13px; line-height: 1.5;
+    color: var(--dsw-alias-label-primary);
+  }
+  .vu-hdr { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+  .vu-hdr-l { display: flex; align-items: center; gap: 7px; font-weight: 600; font-size: 14px; }
+  .vu-hdr-ico { color: #4a6cf7; }
+  .vu-badge { font-size: 10px; padding: 2px 8px; border-radius: 6px; font-weight: 500; background: var(--dsw-alias-state-success-tertiary); color: var(--dsw-alias-state-success-primary); }
+  .vu-tabs { display: flex; gap: 2px; margin-bottom: 10px; background: var(--dsw-alias-bg-base); border-radius: 8px; padding: 2px; }
+  .vu-tab { flex: 1; padding: 5px 0; border: none; border-radius: 6px; background: transparent; color: var(--dsw-alias-label-tertiary); cursor: pointer; font-size: 12px; font-weight: 500; font-family: inherit; }
+  .vu-tab.active { background: var(--dsw-alias-button-info-fill); color: #fff; font-weight: 600; box-shadow: var(--dsw-shadow-lv1); }
+  .vu-kpis { display: grid; grid-template-columns: 1fr 1fr; gap: 5px; margin-bottom: 8px; }
+  .vu-kpi { background: var(--dsw-alias-bg-base); border-radius: 8px; padding: 7px 10px; }
+  .vu-kpi-full { grid-column: 1 / -1; }
+  .vu-kpi-lbl { font-size: 10px; color: var(--dsw-alias-label-tertiary); margin-bottom: 1px; }
+  .vu-kpi-val { font-size: 16px; font-weight: 650; font-variant-numeric: tabular-nums; }
+  .vu-kpi-val .vu-un { font-size: 10px; font-weight: 400; color: var(--dsw-alias-label-tertiary); margin-left: 2px; }
+  .vu-cc { background: var(--dsw-alias-bg-base); border-radius: 9px; padding: 10px 12px; margin-bottom: 8px; }
+  .vu-cc-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 4px; }
+  .vu-cc-val { font-size: 18px; font-weight: 650; font-variant-numeric: tabular-nums; }
+  .vu-cc-val .vu-un { font-size: 11px; font-weight: 400; color: var(--dsw-alias-label-tertiary); margin-left: 2px; }
+  .vu-cc-bar { flex: 1; height: 6px; background: rgba(128,128,128,.1); border-radius: 99px; overflow: hidden; }
+  .vu-cc-fill { height: 100%; border-radius: 99px; background: var(--dsw-alias-state-success-primary); }
+  .vu-ll { display: flex; flex-wrap: wrap; gap: 3px 6px; margin-top: 5px; align-items: center; }
+  .vu-ll-item { font-size: 10px; padding: 1px 6px; border-radius: 4px; font-variant-numeric: tabular-nums; white-space: nowrap; display: inline-flex; align-items: center; gap: 3px; }
+  .vu-ll-item.ok { background: var(--dsw-alias-state-success-tertiary); color: var(--dsw-alias-state-success-primary); }
+  .vu-ll-item.warn { background: var(--dsw-alias-state-warn-tertiary); color: var(--dsw-alias-state-warn-primary); }
+  .vu-ll-item.danger { background: rgba(248,81,73,.1); color: var(--dsw-alias-state-error-primary); }
+  .vu-ll-remain { font-size: 10px; color: var(--dsw-alias-label-tertiary); margin-left: auto; }
+  .vu-lc-btn { font-size: 10px; color: var(--dsw-alias-label-tertiary); cursor: pointer; padding: 1px 6px; border-radius: 4px; background: var(--dsw-alias-bg-base); border: 1px dashed var(--dsw-elevation-stroke-color); display: inline-block; margin-top: 4px; }
+  .vu-mh { font-size: 10px; color: var(--dsw-alias-label-tertiary); margin-bottom: 3px; }
+  .vu-mr { display: flex; justify-content: space-between; align-items: center; padding: 3px 0; font-size: 11px; border-bottom: 1px solid rgba(128,128,128,.05); }
+  .vu-mr-last { border-bottom: none; }
+  .vu-mn { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 180px; }
+  .vu-mt { font-variant-numeric: tabular-nums; white-space: nowrap; color: var(--dsw-alias-label-secondary); }
+  .vu-foot { display: flex; justify-content: space-between; align-items: center; margin-top: 7px; padding-top: 6px; font-size: 10px; color: var(--dsw-alias-label-tertiary); }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div data-vu-panel>
+      <div class="vu-hdr">
+        <div class="vu-hdr-l"><svg class="vu-hdr-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4"/><circle cx="12" cy="12" r="4"/></svg><span>火山引擎·额度消耗</span></div>
+        <span class="vu-badge">已连接</span>
+      </div>
+
+      <div class="vu-tabs">
+        <button class="vu-tab active">今日</button>
+        <button class="vu-tab">本周</button>
+        <button class="vu-tab">本月</button>
+      </div>
+
+      <div class="vu-kpis">
+        <div class="vu-kpi"><div class="vu-kpi-lbl">输入(未缓存)</div><div class="vu-kpi-val">7.10M<span class="vu-un">tok</span></div></div>
+        <div class="vu-kpi"><div class="vu-kpi-lbl">输入(缓存)</div><div class="vu-kpi-val">119.6M<span class="vu-un">tok</span></div></div>
+        <div class="vu-kpi"><div class="vu-kpi-lbl">输出</div><div class="vu-kpi-val">53.1K<span class="vu-un">tok</span></div></div>
+        <div class="vu-kpi"><div class="vu-kpi-lbl">请求</div><div class="vu-kpi-val">98</div></div>
+        <div class="vu-kpi vu-kpi-full" style="display:flex;justify-content:space-between">
+          <span style="color:var(--dsw-alias-label-tertiary);font-size:10px">缓存率 94.4%</span>
+          <span style="color:var(--dsw-alias-label-tertiary);font-size:10px">总量 126.7M tok</span>
+        </div>
+      </div>
+
+      <div class="vu-cc">
+        <div class="vu-cc-top">
+          <span class="vu-cc-val">6.84<span class="vu-un">Credit</span></span>
+          <div class="vu-cc-bar"><div class="vu-cc-fill" style="width:12%"></div></div>
+          <span style="font-size:10px;color:var(--dsw-alias-label-tertiary);white-space:nowrap">600</span>
+        </div>
+        <div class="vu-ll">
+          <span class="vu-ll-item ok">提醒 360 ✓</span>
+          <span class="vu-ll-item ok">预警 480 ✓</span>
+          <span class="vu-ll-item ok">封禁 600 ✓</span>
+          <span class="vu-ll-remain">剩余 593.16 (98.9%)</span>
+        </div>
+        <span class="vu-lc-btn">⚙ 配置</span>
+      </div>
+
+      <div class="vu-mh">模型 TOP5</div>
+      <div class="vu-mr"><span class="vu-mn">deepseek-v4-flash</span><span class="vu-mt">126.6M tok</span></div>
+      <div class="vu-mr"><span class="vu-mn">deepseek-v4-pro</span><span class="vu-mt">58.2K tok</span></div>
+      <div class="vu-mr"><span class="vu-mn">doubao-seed-2.1-pro</span><span class="vu-mt">12.4K tok</span></div>
+      <div class="vu-mr vu-mr-last"><span class="vu-mn">qwen3.8-max</span><span class="vu-mt">3.1K tok</span></div>
+
+      <div class="vu-foot"><span>更新 14:32:05</span><span style="font-variant-numeric:tabular-nums">⟳ 42s</span></div>
+    </div>
+    <div data-vu-toggle><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+  </div>
+</body>
+</html>

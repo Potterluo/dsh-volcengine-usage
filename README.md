@@ -4,7 +4,7 @@ Volcano Engine (火山引擎) API Gateway quota / usage dashboard for DeepSeek H
 
 A floating panel that shows real-time token consumption, estimated Credit usage, configurable daily/weekly/monthly limits — all auto-discovered from your DSH provider settings.
 
-![screenshot](./docs/screenshot.png)
+![screenshot](docs/screenshot.png)
 
 ---
 
