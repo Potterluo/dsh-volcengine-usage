@@ -22,13 +22,13 @@ A floating panel that shows real-time token consumption, estimated Credit usage,
 ## Installation
 
 ```bash
-dsh plugin --profile desktop add github:YOUR_USERNAME/dsh-volcengine-usage
+dsh plugin --profile desktop add github:Potterluo/dsh-volcengine-usage
 ```
 
 Or manually:
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/dsh-volcengine-usage.git
+git clone https://github.com/Potterluo/dsh-volcengine-usage.git
 cd dsh-volcengine-usage
 pnpm install
 ```

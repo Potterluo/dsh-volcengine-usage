@@ -20,13 +20,13 @@ DeepSeek Harness (DSH) Web GUI 内的**火山引擎网关额度消耗面板**：
 ## 安装
 
 ```bash
-dsh plugin --profile desktop add github:YOUR_USERNAME/dsh-volcengine-usage
+dsh plugin --profile desktop add github:Potterluo/dsh-volcengine-usage
 ```
 
 或手动方式：
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/dsh-volcengine-usage.git
+git clone https://github.com/Potterluo/dsh-volcengine-usage.git
 cd dsh-volcengine-usage
 pnpm install
 ```
