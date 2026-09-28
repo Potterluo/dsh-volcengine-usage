@@ -14,3 +14,7 @@ lib/client.js.map
 # Test artifacts
 *.mjs.tmp
 test-*.mjs
+
+# Headless-browser scratch dirs (scripts/screenshot.mjs)
+.cdp-profile*/
+vu-shot*/

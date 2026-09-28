@@ -1,6 +1,6 @@
 {
   "name": "dsh-volcengine-usage",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "type": "module",
   "description": "DSH Web GUI 内的火山引擎网关额度消耗面板：用量、Credit 估算、日/周/月限额提醒，自动发现 provider 配置，无需额外凭证。",
   "keywords": [
@@ -41,7 +41,8 @@
   },
   "scripts": {
     "build:client": "node scripts/build-client.mjs",
-    "check:client": "node scripts/build-client.mjs --check"
+    "check:client": "node scripts/build-client.mjs --check",
+    "screenshot": "node scripts/screenshot.mjs"
   },
   "dependencies": {
     "js-yaml": "^4.1.0"
