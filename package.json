@@ -42,6 +42,7 @@
   "scripts": {
     "build:client": "node scripts/build-client.mjs",
     "check:client": "node scripts/build-client.mjs --check",
+    "embed-logo": "node scripts/embed-logo.mjs",
     "screenshot": "node scripts/screenshot.mjs"
   },
   "dependencies": {

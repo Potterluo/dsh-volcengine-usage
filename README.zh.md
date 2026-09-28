@@ -130,6 +130,13 @@ volcengine-usage/
 
 `/v1/usage/*` 接口契约遵循 [BlueRegion Usage](https://gitcode.com/solcao/BlueRegionUsage) 规范。
 
+## 商标声明
+
+「火山引擎 / Volcano Engine」及火山引擎 Logo 是北京火山引擎科技有限公司的商标。
+本项目为独立的第三方工具，与其无隶属或背书关系；内置该标识**仅用于标明所统计的服务对象**。
+图标以 `assets/volcengine-mark-64.png` 形式随仓库分发（官方 favicon 降采样），
+由 `pnpm run embed-logo` 内嵌进 client bundle。
+
 ## License
 
 MIT
